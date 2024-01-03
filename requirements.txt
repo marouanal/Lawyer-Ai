@@ -10,3 +10,4 @@ pinecone-client
 tiktoken
 streamlit
 aiohttp
+python-dotenv
