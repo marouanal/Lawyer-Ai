@@ -26,10 +26,11 @@ def initialize_models():
      # Retrieve API keys from environment variables
     pinecone_api_key = os.getenv("PINECONE_API_KEY")
     openai_api_key = os.getenv("OPENAI_API_KEY")
+    environment= os.getenv("ENVIRONMENT")
 
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
 
-    pinecone.init(api_key=pinecone_api_key, environment="gcp-starter")
+    pinecone.init(api_key=pinecone_api_key, environment=environment)
     index_name = "data"
 
     docsearch = Pinecone.from_texts([t.page_content for t in texts], embeddings, index_name=index_name)
